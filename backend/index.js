@@ -2,18 +2,29 @@ import express from "express";
 import http from "http";
 import { Server } from "socket.io";
 import path from "path";
+import { fileURLToPath } from 'url';
 import fetch from "node-fetch";
 import colors from "colors";
-import "dotenv/config";
+
+
+import dotenv from "dotenv";
+dotenv.config();
+
+// -------------------
+// Check if keys are set
+if (process.env.JD_CLIENT_SECRET && process.env.JD_CLIENT_ID) {
+    console.log("JDoodle API keys are set and ready to use!");
+} else {
+    console.error("Error: JDoodle API keys are missing. Please check your .env file.");
+    process.exit(1);
+}
+
 
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server, { cors: { origin: "*" } });
 
 const rooms = new Map();
-
-// -------------------
-
 
 // -------------------
 // Supported Languages & Version Indexes
@@ -134,8 +145,8 @@ io.on("connection", (socket) => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          clientId: "611dde80fd067f1abd192807a22960a7",
-          clientSecret: "6e5fe0d1dcd8dfc25296a97a26d7caa3a0228ef5676ae8a324a70f714b62d60f",
+          clientId: process.env.JD_CLIENT_ID,
+          clientSecret: process.env.JD_CLIENT_SECRET,
           script: code,
           stdin: input || "",
           language: normalizedLang,
@@ -143,6 +154,7 @@ io.on("connection", (socket) => {
           compileOnly: false
         })
       });
+
 
       const result = await response.json();
       console.log("JDoodle API Result:", result);
@@ -162,12 +174,17 @@ io.on("connection", (socket) => {
 // -------------------
 // Serve frontend
 // -------------------
-const port = process.env.PORT || 5000;
-const __dirname = path.resolve();
-app.use(express.static(path.join(__dirname, "/frontend/dist")));
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
+const port = process.env.PORT || 5000;
+// Proper __dirname for ESM
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+app.use(express.static(path.join(__dirname, "../frontend/dist")));
+
+// Use correct catch-all route for Express
+app.get(/.*/, (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
 });
 
 server.listen(port, () => {
