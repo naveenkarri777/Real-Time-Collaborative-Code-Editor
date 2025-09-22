@@ -1,4 +1,3 @@
-
 # Real-Time Collaborative Code Editor
 
 A web-based code editor that allows multiple users to collaborate in real time, write and execute code in multiple languages, and see each other's changes instantly. Built with React (frontend), Node.js/Express (backend), Socket.IO for real-time communication, Monaco Editor for code editing, and JDoodle API for code execution.
@@ -121,9 +120,14 @@ Real-Time-Collaborative-Code-Editor/
 - This project is for educational/demo purposes. For production, consider sandboxing, rate limiting, and authentication.
 
 ## Credits
-- [JDoodle API](https://www.jdoodle.com/compiler-api)
+- [JDoodle API](https://www.jdoodle.com/)
 - [Monaco Editor](https://microsoft.github.io/monaco-editor/)
 - [Socket.IO](https://socket.io/)
+
+
+> **Important:**  
+> Make sure `.env` is listed in your `.gitignore` file to keep your credentials safe.
+
 
 ## License
 MIT License

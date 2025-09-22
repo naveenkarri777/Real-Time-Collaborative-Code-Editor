@@ -5,19 +5,8 @@ import path from "path";
 import { fileURLToPath } from 'url';
 import fetch from "node-fetch";
 import colors from "colors";
-
-
 import dotenv from "dotenv";
 dotenv.config();
-
-// -------------------
-// Check if keys are set
-if (process.env.JD_CLIENT_SECRET && process.env.JD_CLIENT_ID) {
-    console.log("JDoodle API keys are set and ready to use!");
-} else {
-    console.error("Error: JDoodle API keys are missing. Please check your .env file.");
-    process.exit(1);
-}
 
 
 const app = express();
