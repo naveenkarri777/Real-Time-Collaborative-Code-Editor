@@ -163,7 +163,7 @@ const App = () => {
           <button onClick={copyRoomId} className="copy-button">Copy Id</button>
           {copySuccess && <span className="copy-success">{copySuccess}</span>}
         </div>
-        
+
         <h3>You : {userName}</h3>
         <h3>Users in Room:</h3>
         <ul>{users.map((user, i) => <li key={i}>{user.slice(0, 8)}...</li>)}</ul>
@@ -184,14 +184,14 @@ const App = () => {
         </select>
 
         {/* NEW: Input Textarea */}
-        <h3>Input:</h3>
         <textarea
           placeholder="Enter input here..."
           value={input}
           onChange={(e) => setInput(e.target.value)}
           rows={4}
-          className="w-full border p-2 rounded"
+          className="w-full min-w-[200px] border p-2 rounded resize-y text-black"
         />
+
 
         <button className="leave-button" onClick={leaveRoom}>Leave Room</button>
         <button className="leave-button" onClick={runCode}>Run Code</button>
