@@ -164,16 +164,13 @@ io.on("connection", (socket) => {
 // Serve frontend
 // -------------------
 
-const port = process.env.PORT || 5000;
-// Proper __dirname for ESM
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const port = process.env.PORT;
 
-app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
-// Use correct catch-all route for Express
-app.get(/.*/, (req, res) => {
-  res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
+
+//api endpoints
+app.get('/', (req, res) => {
+  res.send("Api is working");
 });
 
 server.listen(port, () => {
