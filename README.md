@@ -5,7 +5,7 @@ A web-based code editor that allows multiple users to collaborate in real time, 
 
 ## 🌐 Live Demo
 
-🔗 [Click here to Real-Time Collaborative Code Editor](https://smart-shop-fullstack.vercel.app/)
+🔗 [Click here to Real-Time Collaborative Code Editor](https://real-time-collaborative-code-editor-eosin.vercel.app/)
 
 
 ## Features
