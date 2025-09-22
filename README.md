@@ -2,6 +2,12 @@
 
 A web-based code editor that allows multiple users to collaborate in real time, write and execute code in multiple languages, and see each other's changes instantly. Built with React (frontend), Node.js/Express (backend), Socket.IO for real-time communication, Monaco Editor for code editing, and JDoodle API for code execution.
 
+
+## 🌐 Live Demo
+
+🔗 [Click here to Real-Time Collaborative Code Editor](https://smart-shop-fullstack.vercel.app/)
+
+
 ## Features
 
 - **Real-Time Collaboration:** Multiple users can join a room and edit code together live.
@@ -105,7 +111,7 @@ Real-Time-Collaborative-Code-Editor/
 │   ├── public/
 │   ├── index.html
 │   └── ...
-├── package.json
+├── .gitignore
 └── README.md
 ```
 ## Tech Highlights

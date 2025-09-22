@@ -163,7 +163,8 @@ const App = () => {
           <button onClick={copyRoomId} className="copy-button">Copy Id</button>
           {copySuccess && <span className="copy-success">{copySuccess}</span>}
         </div>
-
+        
+        <h3>You : {userName}</h3>
         <h3>Users in Room:</h3>
         <ul>{users.map((user, i) => <li key={i}>{user.slice(0, 8)}...</li>)}</ul>
 
