@@ -31,7 +31,7 @@ const versionIndexes = {
   go: "0"          // Golang
 };
 
-// Map common language names to JDoodle API names
+// Map common language names to API names
 function normalizeLanguage(language) {
   const map = {
     javascript: "nodejs",
@@ -120,17 +120,17 @@ io.on("connection", (socket) => {
   });
 
   // -------------------
-  // RUN CODE (JDoodle API)
+  // RUN CODE (using API)
   // -------------------
   socket.on("runCode", async ({ roomId, language, code, input }) => {
     const normalizedLang = normalizeLanguage(language);
     if (!versionIndexes[normalizedLang]) {
-      io.to(roomId).emit("executionResult", `Error: Language \"${language}\" not supported`);
+      io.to(roomId).emit("");
       return;
     }
 
     try {
-      const response = await fetch("https://api.jdoodle.com/v1/execute", {
+      const response = await fetch("", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -146,10 +146,10 @@ io.on("connection", (socket) => {
 
 
       const result = await response.json();
-      console.log("JDoodle API Result:", result);
+      console.log(" API Result:", result);
 
       if (result.error) {
-        io.to(roomId).emit("executionResult", `JDoodle Error: ${result.error}`);
+        io.to(roomId).emit("executionResult", ` Error: ${result.error}`);
       } else {
         io.to(roomId).emit("executionResult", result.output ?? "No output");
       }

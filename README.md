@@ -1,6 +1,6 @@
 # Real-Time Collaborative Code Editor
 
-A web-based code editor that allows multiple users to collaborate in real time, write and execute code in multiple languages, and see each other's changes instantly. Built with React (frontend), Node.js/Express (backend), Socket.IO for real-time communication, Monaco Editor for code editing, and JDoodle API for code execution.
+A web-based code editor that allows multiple users to collaborate in real time, write and execute code in multiple languages, and see each other's changes instantly. Built with React (frontend), Node.js/Express (backend), Socket.IO for real-time communication, Monaco Editor for code editing, and  API for code execution.
 
 
 ## 🌐 Live Demo
@@ -12,7 +12,7 @@ A web-based code editor that allows multiple users to collaborate in real time, 
 
 - **Real-Time Collaboration:** Multiple users can join a room and edit code together live.
 - **Multi-Language Support:** Write and execute code in JavaScript, Python, Java, C++, C#, Ruby, Swift, Go, and C.
-- **Code Execution:** Run code directly in the browser using the JDoodle API and view output instantly.
+- **Code Execution:** Run code directly in the browser using the API and view output instantly.
 - **User Presence:** See who is in the room and who is currently typing.
 - **Input Support:** Provide custom input for code execution.
 - **Room System:** Create or join rooms using a unique Room ID.
@@ -22,7 +22,7 @@ A web-based code editor that allows multiple users to collaborate in real time, 
 ## Tech Stack
 
 - **Frontend:** React, Vite, Monaco Editor, Socket.IO-client
-- **Backend:** Node.js, Express, Socket.IO, JDoodle API
+- **Backend:** Node.js, Express, Socket.IO,APi for code execution
 - **Other:** dotenv, node-fetch, colors
 
 ## Getting Started
@@ -117,16 +117,15 @@ Real-Time-Collaborative-Code-Editor/
 ## Tech Highlights
 - Real-time collaboration with Socket.IO
 - Rich code editor with Monaco Editor
-- Multi-language code execution via JDoodle API
+- Multi-language code execution 
 - Full-stack React + Node.js implementation
 
 
 ## Security & Notes
-- Code execution is handled via the JDoodle API. Do **not** expose your JDoodle credentials in public repos.
+- Code execution is handled via API'S. Do **not** expose your credentials in public repos.
 - This project is for educational/demo purposes. For production, consider sandboxing, rate limiting, and authentication.
 
 ## Credits
-- [JDoodle API](https://www.jdoodle.com/)
 - [Monaco Editor](https://microsoft.github.io/monaco-editor/)
 - [Socket.IO](https://socket.io/)
 

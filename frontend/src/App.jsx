@@ -105,7 +105,10 @@ const App = () => {
 
   const runCode = () => {
     setOpenOutputWindow(true);
-    setOutput("⏳ Running your code...");
+    setOutput(`⏳ Running your code...
+      
+      Online code execution is currently disabled for this demo.
+      You can still edit and collaborate in real time.`);
     // Map language to backend value
     const backendLanguage = languageMap[language] || language;
     socket.emit("runCode", { roomId, language: backendLanguage, code, input });
